@@ -6,10 +6,13 @@ possibleLetters = knownPhonemes{depth,3};
 
 x = size(knownPhonemes);
 for i= 1:x
+    possible = false;
     length = strlength(possibleLetters{i});
+    wordLength = strlength(possibleWord);
+    if (wordLength >= length)
     substring = extractBetween(possibleWord,1,length);
     possible = contains(substring,possibleLetters{i});
-    
+    end
     if(possible)
        if(depth == Maxdepth)
            ispossible = true;
