@@ -1,12 +1,12 @@
 
-function [phoneme,possibleLetters,ClosestGuess]  = decidePhoneme(phonemeErrorArray)
+function [guessID,phoneme,possibleLetters]  = decidePhoneme(phonemeErrorArray)
 
 [M,I] = min(phonemeErrorArray);
 
-ClosestGuess = I(1);
+guessID = I(1);
 
 
-   switch(ClosestGuess)
+   switch(guessID)
    case 1 
       phoneme = "/b/";
       possibleLetters = ["b","bb"];
