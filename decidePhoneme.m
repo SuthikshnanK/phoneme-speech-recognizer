@@ -1,12 +1,16 @@
 
-function [guessID,phoneme,possibleLetters]  = decidePhoneme(phonemeErrorArray)
+%Takes a size 44 array of errors in phoneme comparison and determines the
+%index of the the minimum error and returns the associated phoneme
+%information(ID,character representation,
 
-[M,I] = min(phonemeErrorArray);
+function [guessID,phoneme,possibleLetters]  = decidePhoneme(phonemeErrorArray) 
 
-guessID = I(1);
+[M,I] = min(phonemeErrorArray); %Find the min error of the phonemeErrorArray
+
+guessID = I(1); 
 
 
-   switch(guessID)
+   switch(guessID) %Get the associated information from phoneme ID
    case 1 
       phoneme = "/b/";
       possibleLetters = ["b","bb"];
