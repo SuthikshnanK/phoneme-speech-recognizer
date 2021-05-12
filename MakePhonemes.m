@@ -1,18 +1,18 @@
 function phonemes = MakePhonemes(N, suppressGraphs)
     
-    phonemes = phoneme.empty;
+    phonemes = Phoneme.empty;
 
     phonemes(1) = MakePhonemeFromSample(2, 'Phonemes\2.mp3', N, suppressGraphs);
     phonemes(2) = MakePhonemeFromSample(4, 'Phonemes\4.mp3', N, suppressGraphs);
     phonemes(3) = MakePhonemeFromSample(7, 'Phonemes\7.mp3', N, suppressGraphs);
-    phonemes(4) = MakePhonemeFromSample(7, 'Phonemes\9.mp3', N, suppressGraphs);
+    phonemes(4) = MakePhonemeFromSample(9, 'Phonemes\9.mp3', N, suppressGraphs);
     phonemes(5) = MakePhonemeFromSample(13, 'Phonemes\13.mp3', N, suppressGraphs);
     phonemes(6) = MakePhonemeFromSample(14, 'Phonemes\14.mp3', N, suppressGraphs);
     phonemes(7) = MakePhonemeFromSample(25, 'Phonemes\25.mp3', N, suppressGraphs);
-    phonemes(8) = MakePhonemeFromSample(25, 'Phonemes\26.mp3', N, suppressGraphs);
+    phonemes(8) = MakePhonemeFromSample(26, 'Phonemes\26.mp3', N, suppressGraphs);
     phonemes(9) = MakePhonemeFromSample(31, 'Phonemes\31.mp3', N, suppressGraphs);
     phonemes(10) = MakePhonemeFromSample(32, 'Phonemes\32.mp3', N, suppressGraphs);
-    phonemes(11) = MakePhonemeFromSample(32, 'Phonemes\34.mp3', N, suppressGraphs);
+    phonemes(11) = MakePhonemeFromSample(34, 'Phonemes\34.mp3', N, suppressGraphs);
     
 end
 
