@@ -1,0 +1,28 @@
+function phenomes = MakePhenomes(N)
+    
+    phenomes = Phenome.empty;
+
+    phenomes(1) = MakePhenomeFromSample(2, 'Phonemes\2.mp3', N);
+    phenomes(2) = MakePhenomeFromSample(4, 'Phonemes\4.mp3', N);
+    phenomes(3) = MakePhenomeFromSample(7, 'Phonemes\7.mp3', N);
+    phenomes(4) = MakePhenomeFromSample(13, 'Phonemes\13.mp3', N);
+    phenomes(5) = MakePhenomeFromSample(14, 'Phonemes\14.mp3', N);
+    phenomes(6) = MakePhenomeFromSample(25, 'Phonemes\25.mp3', N);
+    phenomes(7) = MakePhenomeFromSample(31, 'Phonemes\31.mp3', N);
+    phenomes(8) = MakePhenomeFromSample(31, 'Phonemes\32.mp3', N);
+    
+end
+
+
+function phenome = MakePhenomeFromSample(ID, fileName, N)    
+    [averagePhoneme] = preProcessor(fileName);
+    PlotTime(averagePhoneme, "Phenome"+ID+" Time");
+   
+    y1Len = length(averagePhoneme);
+    y1_resample = resample(averagePhoneme, N, y1Len);
+    yFFT1 = abs(fftshift(fft(y1_resample)));
+    GraphFreq(abs(yFFT1), "Phenome"+ID+ " FFT");
+    
+    phenome = Phenome(ID, yFFT1);
+end
+
