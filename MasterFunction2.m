@@ -1,6 +1,8 @@
+%Master Function -
+
 function [possiblePSpellings,ValidWords] = MasterFunction2(wordName,fileName)
 
- [phonemesIndex,weights] = determinePossiblePhonemes("Cake","Words\Cake.mp3");
+ [phonemesIndex,weights] = determinePossiblePhonemes(wordName,fileName); 
  
  [phonemeArray] = processPhonemesToAPI(phonemesIndex, weights);
  
