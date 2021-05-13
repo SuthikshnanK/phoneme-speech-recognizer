@@ -1,3 +1,9 @@
+%{
+    This function queries the Meriam Webster Dictionary API using our
+    personal key and takes the output and turns it into a readable
+    structure.
+%} 
+
 function Word = GetWordFromAPI(Word)
 api = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/';
 Key = '?key=78a49613-2600-4e65-8649-e9ea965d4719';

@@ -12,9 +12,7 @@
     inorder to get an estimate of a vaild letter word and output an array
     of phoneme indices in the order that they apear in the word
 
-    Lastly it takes the phoneme array and queries the dictionary API and
-    the recusivly checks the validity of of each word and gives a list of
-    valid words and the the phoneme spelling
+    Lastly it takes the phoneme array and queries the dictionary API 
  
   
 %}    

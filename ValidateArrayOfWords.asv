@@ -3,9 +3,8 @@
 %{
   ValidateArrayOfWords
 
-   Take an input of an array of words and a cell array of the phenomes in order with the possible information and checks all of using the recursive
-   function determineWordPossible and if the word is possible adds it to
-   the output array.
+   Take an input of an array of words and a cell array of the  and checks all of using the recursive
+   function determineWordPossible 
    
   
 %}    

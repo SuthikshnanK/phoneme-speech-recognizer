@@ -2,13 +2,7 @@
 %{
    This function takes an input of the auido file determines the possible
    phonemes associated. It first determines a list of possible constenants
-   and weights according to their aproximate location in the word along
-   with assinging the peaks to usable phenome indices. 
-   
-   Then uses time correlation to get the estimate of the vowels present in
-   the word with the weighting placed on the one with the highest peak
-   correlation and outputs two arrays of equal length outling the possible
-   phonemes in the file and the weights of their position in the word.
+   and weights them 
 
 
 %} 
