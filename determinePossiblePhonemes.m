@@ -1,15 +1,15 @@
-function phonemesIndex = determinePossiblePhonemes(wordName,fileName)
-
+function [phonemesIndex,weights] = determinePossiblePhonemes(wordName,fileName)
 
 j=1;
 phonemesIndex(j) = 0;
+weights(j) = 0;
 
-
-floc = ConstPowerSpectrum(wordName,fileName); 
+[floc,weight] = ConstPowerSpectrum(wordName,fileName); 
 
     for i = 1:6 
-        
-        if floc{i} > .75
+       
+   
+        if (floc(i) > .75)
            
             switch i
                 case 1
@@ -27,9 +27,11 @@ floc = ConstPowerSpectrum(wordName,fileName);
                 otherwise
                     phonemesIndex(j) = 0;
             end
+            
+          weights(j) = weight(i);
           j = j+1;
-        end
         
+        end
     end
 
     
@@ -50,6 +52,5 @@ possibleVowels = VowelTimeCorrelation(wordName,fileName);
                 otherwise
                     phonemesIndex(j) = 0;
             end
-            
-
+       weights(j) =4; 
 end

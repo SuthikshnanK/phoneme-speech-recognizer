@@ -16,7 +16,7 @@
     for others (ie: not very consistent).
     
 %}
-function   floc = ConstPowerSpectrum(wordName,fileName) 
+function   [floc,weights] = ConstPowerSpectrum(wordName,fileName) 
 
 N = 2^12;
 fs = 44100;
@@ -26,36 +26,12 @@ phonemes = MakePhonemes(N, true);
 N2 = 2^8;
 
 wordResample = resample(wordTime, N2, length(wordTime));
-floc{5} = 0;
+floc(5) = 0;
+weights(5)=0;
 for i = 1:6
     phonResample = resample(phonemes(i).Time, N2, length(phonemes(i).Time));
 
-    [P1, f1] = periodogram(wordResample,[],[],fs,'power');
-    [P2, f2] = periodogram(phonResample,[],[],fs,'power');
-    
-    figure
-    subplot(2,2,1)
-    plot(wordResample,'k')
-    ylabel('s1')
-    grid on
-    title('Time Series')
-    subplot(2,2,3)
-    plot(phonResample)
-    ylabel('s2')
-    grid on
-    xlabel('Time (secs)')
-    subplot(2,2,2)
-    plot(f1,P1,'k')
-    ylabel('P1')
-    grid on
-    axis tight
-    title("Power Spectrum for Phoneme "+phonemes(i).ID)
-    subplot(2,2,4)
-    plot(f2,P2)
-    ylabel('P2')
-    grid on
-    axis tight
-    xlabel('Frequency (Hz)')
+   
     
     [Cxy,f] = mscohere(wordResample,phonResample,[],[],[],fs); % Magnitude Squared Coherence
     Pxy = cpsd(wordResample,phonResample,[],[],[],fs); % Cross Power Spectral Density
@@ -63,39 +39,44 @@ for i = 1:6
     
     [pks,locs] = findpeaks(Cxy,'MinPeakHeight',0.75);
     
-    figure
-    subplot(2,1,1)
-    plot(f,Cxy)
-    title('Coherence Estimate')
-    grid on
-    hgca = gca;
-    hgca.XTick = f(locs);
-    hgca.YTick = 0.75;
-    subplot(2,1,2)
-    plot(f,phase)
-    title('Cross-spectrum Phase (deg)')
-    grid on
-    hgca = gca;
-    hgca.XTick = f(locs);
-    xlabel('Frequency (Hz)')
     
-    if (length(pks)> 0)
-        side(length(pks)) = 0;
-    else
-        side=0;
-    end
-    
-    for j = 1:length(pks)
-        if (locs(j) >= (length(Cxy)/2))
-            side(j) = 2;
+   
+    temp = 0;
+ for k = 1:length(locs)
+     
+      if (locs(k) >= (length(Cxy)/2))
+            weight(i) = 2;
         end
-        if (locs(j) < (length(Cxy)/2))
-             side(j) = 1;
+        if (locs(k) < (length(Cxy)/2))
+             weight(i) = 1;
          end
+     
+     
+                if (weight(i)==1 && temp ==0)
+                    temp = 1;
+                
+                elseif (weight(i)==2 && temp ==0)
+                    temp = 2;
+                
+                elseif ((weight(i)==2 && temp > 0 && temp ~= 2)||(weight(k)==1 && temp > 0 && temp ~= 1))
+                    temp = 3;
+                
+                else
+                    
+                end
+                
+                 weights(i) = temp;
+            end
+            
+            
     
-    end
-    floc{i} = {pks,side};
-    
+     if (length(pks)>0)
+     temp2 = max(pks);
+      floc(i) = temp2(1);
+     else
+       floc(i) = 0;  
+     end
+     end
+     
 end
 
-end

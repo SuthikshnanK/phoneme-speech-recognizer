@@ -1,15 +1,15 @@
-function phonemesIndex = determinePossiblePhonemes(wordName,fileName)
+function [phonemesIndex,weights] = determinePossiblePhonemes(wordName,fileName)
 
 
 j=1;
 phonemesIndex(j) = 0;
-
+weights(j) = 0;
 
 floc = ConstPowerSpectrum(wordName,fileName); 
 
     for i = 1:6 
-        
-        if floc{i} > .75
+        peaks = floc{i,1};
+        if (peaks(1) > .75)
            
             switch i
                 case 1
@@ -27,33 +27,52 @@ floc = ConstPowerSpectrum(wordName,fileName);
                 otherwise
                     phonemesIndex(j) = 0;
             end
+            
+            weight = floc{i,2};
+            temp = 0;
+            for k = 1:length(weight)
+                if (weight(k)==1 && temp ==0)
+                    temp = 1;
+                
+                elseif (weight(k)==2 && temp ==0)
+                    temp = 2;
+                
+                elseif ((weight(k)==2 && temp > 0 && temp ~= 2)||(weight(k)==1 && temp > 0 && temp ~= 1))
+                    temp = 3;
+                
+                else
+                    
+                end
+            (weight(i)==2 && temp > 0 && temp ~= 2)    
+                
+                
+                
+            end
+            
+            
           j = j+1;
         end
-        
+       
     end
 
     
-possibleVowels = VowelTimeCorrelation(wordName,fileName)
-[possibleVowel,index]= Max(possibleVowels)
+possibleVowels = VowelTimeCorrelation(wordName,fileName);
+[possibleVowel,index]= max(possibleVowels);
 
-        switch index(1)
+            switch index(1)
                 case 1
-                     phonemesIndex(j) = 2;
+                     phonemesIndex(j) = 25;
                 case 2
-                     phonemesIndex(j) = 4;
+                     phonemesIndex(j) = 26;
                 case 3
-                     phonemesIndex(j) = 7;
+                     phonemesIndex(j) = 31;
                 case 4
-                     phonemesIndex(j) = 9;
+                     phonemesIndex(j) = 32;
                 case 5
-                     phonemesIndex(j) = 13;
-                case 6
-                     phonemesIndex(j) = 14;
+                     phonemesIndex(j) = 34;
                 otherwise
                     phonemesIndex(j) = 0;
             end
+            
 
-
-    
-    
 end
