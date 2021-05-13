@@ -1,5 +1,7 @@
 %{
-    Graph Freq
+    Graph Frequency
+
+    Simply graphs the absolute value of the fft of a signal
 %}
 
 function GraphFreq(signal, name)

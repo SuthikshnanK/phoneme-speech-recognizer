@@ -20,9 +20,9 @@ function [wordTime, wordFreq] = MakeWordFromSample(name, fileName, N, suppressGr
         ylabel('magnitude');
         title("Word "+name+ " FFT");
         hold off;
-
-        wordTime = averageWord;
-        wordFreq = yFFT1;
     end
+    
+    wordTime = averageWord;
+    wordFreq = yFFT1;
 end
 

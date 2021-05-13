@@ -21,7 +21,7 @@ function   [floc,weights] = ConstPowerSpectrum(wordName,fileName)
 N = 2^12;
 fs = 44100;
 phonemes = MakePhonemes(N, true);
-[wordTime, wordFreq] = MakeWordFromSample(wordName,fileName,N,false);
+[wordTime, wordFreq] = MakeWordFromSample(wordName,fileName,N,true);
 
 N2 = 2^8;
 

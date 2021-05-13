@@ -107,7 +107,7 @@ function [guessID,phoneme,possibleLetters]  = decidePhoneme(index)
       possibleLetters = ["o", "oo", "u","ou"];
    case 34
        phoneme = "/^/";
-       possibleLetters = ["u","o", "oo", "ou"];
+       possibleLetters = ["u", "o", "oo", "ou"];
    case 35 
        phoneme = "/u:/";
        possibleLetters = ["o","oo", "ew", "ue", "u_e", "oe", "ough", "ui", "oew", "ou"];
@@ -139,7 +139,7 @@ function [guessID,phoneme,possibleLetters]  = decidePhoneme(index)
        phoneme = "/ure/"; 
        possibleLetters = ["ure","our"];
    otherwise
-      fprintf('Invalid' );
+      fprintf("Invalid");
       possibleLetters = "none";
    end
 end
