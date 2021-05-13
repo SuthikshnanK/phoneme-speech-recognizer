@@ -78,20 +78,17 @@ for i = 1:6
     hgca = gca;
     hgca.XTick = f(locs);
     xlabel('Frequency (Hz)')
-    
-    if (length(pks)> 0)
-        side(length(pks)) = 0;
-    else
-        side=0;
+    if (length(locs)> 0)
+    side=0;
     end
     
-    for j = 1:length(pks)
-        if (locs(j) >= (length(Cxy)/2))
-            side(j) = 2;
-        end
-        if (locs(j) < (length(Cxy)/2))
-             side(j) = 1;
-         end
+    for j = 1:length(locs)
+    if (locs >= (length(Cxy)/2))
+    side(j) = 2;
+    end
+    if (locs < (length(Cxy)/2))
+        side(j) = 1;
+    end
     
     end
     floc{i} = {pks,side};
