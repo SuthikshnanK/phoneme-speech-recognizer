@@ -1,5 +1,3 @@
-
-
 %{
     Power Spectrum & Spectral Coherence Identification
 
