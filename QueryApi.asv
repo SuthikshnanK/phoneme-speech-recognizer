@@ -1,0 +1,15 @@
+function [possiblePSpellings,ValidWords] = QueryApi(phenomeorder)
+
+GuessWord = "";
+for i = 1:length(phenomeorder)
+[guessID(i),phoneme(i),possibleLetters(i)]  = decidePhoneme(index)     
+phenome(i)   
+GuessWord = strcat(GuessWord,)
+
+
+end
+
+GetWordFromApi(GuessWord)
+
+
+end
