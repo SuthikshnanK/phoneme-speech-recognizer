@@ -1,3 +1,7 @@
+%{
+    Graph Freq
+%}
+
 function GraphFreq(signal, name)
     figure(); hold on
     xlabel('k');
