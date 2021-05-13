@@ -4,9 +4,7 @@
 
 function [guessID,phoneme,possibleLetters]  = decidePhoneme(index) 
 
-guessID = index; 
-
-
+    guessID = index; 
    switch(guessID) %Get the associated information from phoneme ID
    case 1 
       phoneme = "/b/";
