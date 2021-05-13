@@ -26,5 +26,4 @@ function [possiblePSpellings,ValidWords] = MasterFunction2(wordName,fileName)
  [phonemeArray] = processPhonemesToAPI(phonemesIndex, weights);
  
  [possiblePSpellings,ValidWords] = QueryApi(phonemeArray);
- 
 end

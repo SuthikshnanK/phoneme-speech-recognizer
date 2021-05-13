@@ -1,3 +1,16 @@
+%{
+    Make Phonemes
+    
+    A utility function to generate all the phonemes that we recorded and
+    process them into their averaged formats.
+
+    Make Phoneme From Sample
+
+    Another utility function that resamples, splits and averages the
+    phoneme signals. If suppressGraphs is true then it will not display any
+    graphs.
+%}
+
 function phonemes = MakePhonemes(N, suppressGraphs)
     
     phonemes = Phoneme.empty;

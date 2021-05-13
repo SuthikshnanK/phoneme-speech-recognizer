@@ -1,3 +1,17 @@
+%{
+    Make Word From Sample
+
+    Generates an average word using the preprocessor then resamples the
+    word and generates an FFT for that resampled word.
+
+    Parameters:
+    - name : name of the word for the graphs to display
+    - fileName : directory and filename of the file ie: Words\Cake.mp3
+    - N : N for the N-Pt FFT
+    - suppressGraphs : boolean which suppresses Graph outputs for non
+    testing purposes
+%}
+
 function [wordTime, wordFreq] = MakeWordFromSample(name, fileName, N, suppressGraphs)
     [averageWord] = preProcessor(fileName);
    

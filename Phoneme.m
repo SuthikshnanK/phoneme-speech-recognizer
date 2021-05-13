@@ -1,6 +1,13 @@
 classdef Phoneme
-    %Phoneme Summary of this class goes here
-    %   Detailed explanation goes here
+
+    %{
+        Phoneme
+    
+        A utility class used to store data in a digestible format for
+        MATLAB to handle. Has deprecated Error Methods, but worth keeping
+        to show our process as we found better metrics to find similarities
+        between phonemes and a word.    
+    %}
     
     properties
         ID
